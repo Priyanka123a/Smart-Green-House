@@ -1,0 +1,130 @@
+{
+  "version": 1,
+  "author": "Mayssa Fezai",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": -3.15,
+      "left": 109.2,
+      "attrs": { "env": "micropython-20231005-v1.21.0" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 6,
+      "left": -44.2,
+      "attrs": { "color": "red", "flip": "" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 81.6,
+      "left": -48.55,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    },
+    { "type": "wokwi-led", "id": "led2", "top": 6, "left": -82.6, "attrs": { "color": "yellow" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 81.6,
+      "left": -86.95,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": 6,
+      "left": -121,
+      "attrs": { "color": "limegreen" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 81.6,
+      "left": -125.35,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-relay-module",
+      "id": "relay1",
+      "top": 41.4,
+      "left": -217.2,
+      "rotate": 270,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -95.7,
+      "left": 234.6,
+      "attrs": { "temperature": "62.5", "humidity": "15" }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": -57.9,
+      "left": 263.3,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-relay-module",
+      "id": "relay2",
+      "top": 41.4,
+      "left": -294,
+      "rotate": 270,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "ntc1",
+      "top": -74.7,
+      "left": 373.9,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-relay-module",
+      "id": "relay3",
+      "top": 41.4,
+      "left": -380.4,
+      "rotate": 270,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "led1:A", "r1:1", "green", [ "v28.8" ] ],
+    [ "r1:2", "pico:GP0", "green", [ "h0", "v-1.2", "h28.8", "v-105.6" ] ],
+    [ "led1:C", "pico:GND.1", "black", [ "v76.8", "h48.4", "v-86.4" ] ],
+    [ "led2:A", "r2:1", "green", [ "v0" ] ],
+    [ "led3:A", "r3:1", "green", [ "v0" ] ],
+    [ "led3:C", "led1:C", "black", [ "v76.8", "h77.2" ] ],
+    [ "led2:C", "led1:C", "black", [ "v76.8", "h0.4" ] ],
+    [ "r2:2", "pico:GP1", "green", [ "h0", "v18", "h86.4", "v-115.2" ] ],
+    [ "r3:2", "pico:GP2", "green", [ "h0", "v27.6", "h134.4", "v-105.6" ] ],
+    [ "relay1:VCC", "pico:3V3", "red", [ "v48", "h374.4", "v-192" ] ],
+    [ "relay1:GND", "led3:C", "black", [ "v28.8", "h57.2" ] ],
+    [ "relay1:IN", "pico:GP3", "violet", [ "v19.2", "h201.4", "v-163.2" ] ],
+    [ "dht1:VCC", "pico:3V3", "red", [ "v28.8" ] ],
+    [ "dht1:GND", "pico:GND.7", "black", [ "v0" ] ],
+    [ "dht1:SDA", "pico:GP4", "yellow", [ "v0" ] ],
+    [ "ldr1:GND", "pico:GND.7", "black", [ "v0" ] ],
+    [ "ldr1:VCC", "pico:3V3", "red", [ "v38.4", "h-163.2", "v-48" ] ],
+    [ "ldr1:AO", "pico:GP28", "yellow", [ "v0" ] ],
+    [ "relay2:VCC", "relay1:VCC", "red", [ "v48", "h76.8" ] ],
+    [ "relay2:GND", "relay1:GND", "black", [ "v28.8", "h76.4" ] ],
+    [ "relay2:IN", "pico:GP5", "violet", [ "v28.8", "h287.8", "v-105.6" ] ],
+    [ "ntc1:VCC", "pico:3V3", "red", [ "v67.2", "h-240", "v-48" ] ],
+    [ "ntc1:GND", "ldr1:GND", "black", [ "v48", "h-96" ] ],
+    [ "ntc1:OUT", "pico:GP27", "yellow", [ "v0" ] ],
+    [ "relay3:GND", "relay2:GND", "black", [ "v28.8", "h86" ] ],
+    [ "relay3:VCC", "relay2:VCC", "red", [ "v48", "h86.4" ] ],
+    [ "relay3:IN", "pico:GP6", "violet", [ "v38.4", "h383.8", "v-86.4" ] ]
+  ],
+  "dependencies": {}
+}
