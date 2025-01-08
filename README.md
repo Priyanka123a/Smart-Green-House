@@ -1,3 +1,6 @@
+
+## Submitted by SURIYA AKSHAYA.N JUSTINA.A EIJAS MOHAMED.P TAMIL.S VELAN.V College Name: UNIVERSITY COLLEGE OF ENGINEERING, BIT CAMPUS, TRICHY##
+
 This project demonstrates how to measure temperature and humidity using a DHT22 sensor and display the readings on a 16x2 I2C LCD screen. It also logs the data to the serial monitor, making it suitable for IoT applications, prototyping, and educational purposes.
 
 Features:
